@@ -12,13 +12,21 @@ const eraser=document.querySelector(".eraser");
 const reset=document.querySelector(".reset");
 
 //creates grid of squares
-function makeGrid(size){
+function makeGrid(size) {
     grid.style.gridTemplateColumns= `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows= `repeat(${size}, 1fr)`;
     for (let i = 0; i < (size * size); i++){
-        let squares= document.createElement("div");
-        grid.insertAdjacentElement("beforeend", squares);
+       changeColor(); 
     }  
 }
-
 makeGrid(16);
+
+//changes colors of squares
+function changeColor() {
+    let squares= document.createElement("div");
+    grid.insertAdjacentElement("beforeend", squares);
+    squares.addEventListener("mouseover", () => {
+        squares.style.backgroundColor= "black";
+    })
+}
+
