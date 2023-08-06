@@ -1,44 +1,48 @@
-//brings in html elements
+//global variables
 const grid=document.querySelector(".grid");
     //sizes
-const small=document.querySelector(".small");
 const classic=document.querySelector(".classic");
 const large=document.querySelector(".large");
 const extraLarge=document.querySelector(".xl");
     //colors
-const black=document.querySelector(".black");
-const random=document.querySelector(".random");
+const draw=document.querySelector(".draw");
 const eraser=document.querySelector(".eraser");
-const reset=document.querySelector(".reset");
+let color= "black";
 
 //creates grid of squares
 function makeGrid(size) {
     grid.style.gridTemplateColumns= `repeat(${size}, 1fr)`;
     grid.style.gridTemplateRows= `repeat(${size}, 1fr)`;
     for (let i = 0; i < (size * size); i++){
-       changeColor(); 
+       paintGrid(); 
     }  
 }
 
-//changes colors of squares
-function changeColor() {
+//paints squares
+function paintGrid() {
     let squares= document.createElement("div");
     grid.insertAdjacentElement("beforeend", squares);
     squares.addEventListener("mouseover", () => {
-        squares.style.backgroundColor= "black";
-    })
+        squares.style.backgroundColor= color;
+    });
 }
 
-//buttons can grid size
-small.addEventListener("click", () => {
-    makeGrid(8);
-})
+//buttons set grid size
 classic.addEventListener("click", () => {
     makeGrid(16);
-})
+});
 large.addEventListener("click", () => {
     makeGrid(32);
-})
+});
 extraLarge.addEventListener("click", () => {
     makeGrid(64);
-})
+});
+
+//buttons change color
+draw.addEventListener("click", () => {
+    color= "black";
+});
+eraser.addEventListener("click", () => {
+    color= "white";
+});
+
