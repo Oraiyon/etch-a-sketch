@@ -12,9 +12,13 @@ const eraser=document.querySelector(".eraser");
 const reset=document.querySelector(".reset");
 
 //creates grid of squares
-grid.style.gridTemplateColumns= "repeat(16, 1fr)";
-grid.style.gridTemplateRows= "repeat(16, 1fr)";
-for (let i = 0; i < (16 * 16); i++){
-    let squares= document.createElement("div");
-    grid.insertAdjacentElement("beforeend", squares);
-} 
+function makeGrid(size){
+    grid.style.gridTemplateColumns= `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows= `repeat(${size}, 1fr)`;
+    for (let i = 0; i < (size * size); i++){
+        let squares= document.createElement("div");
+        grid.insertAdjacentElement("beforeend", squares);
+    }  
+}
+
+makeGrid(16);
