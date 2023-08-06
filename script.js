@@ -19,7 +19,6 @@ function makeGrid(size) {
        changeColor(); 
     }  
 }
-makeGrid(16);
 
 //changes colors of squares
 function changeColor() {
@@ -30,3 +29,16 @@ function changeColor() {
     })
 }
 
+//buttons can grid size
+small.addEventListener("click", () => {
+    makeGrid(8);
+})
+classic.addEventListener("click", () => {
+    makeGrid(16);
+})
+large.addEventListener("click", () => {
+    makeGrid(32);
+})
+extraLarge.addEventListener("click", () => {
+    makeGrid(64);
+})
