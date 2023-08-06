@@ -1,4 +1,11 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .grid{
+    box-sizing: border-box;
     display: grid;
     border: 1px solid black;
     height: 500px;
