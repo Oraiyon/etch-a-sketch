@@ -28,6 +28,7 @@ function makeGrid(size) {
     grid.style.gridTemplateRows= `repeat(${size}, 1fr)`;
     for (let i = 0; i < (size * size); i++){
         let squares= document.createElement("div");
+        squares.setAttribute("style", "background-color: white;");
         grid.insertAdjacentElement("beforeend", squares);
         squares.addEventListener("mouseover", () => {
         squares.style.backgroundColor= color;
